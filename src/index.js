@@ -11,4 +11,13 @@ const clients = [
 
 app.get('/clients', (req, resp) => resp.json(clients))
 
+//Buscar  um unico  recurso
+
+app.get('/clients/:id', (req, resp) => 
+{
+    const client = clients.filter( value => value.id == req.params.id);
+    resp.json(client)
+}
+)
+
 app.listen(3032);
