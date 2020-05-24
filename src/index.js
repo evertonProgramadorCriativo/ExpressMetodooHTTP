@@ -2,7 +2,7 @@ const app = require('express')();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
-const clients = [
+let clients = [
     {id:1 ,nome: 'BIA', telefone: '98765423456'},
     {id:2 ,nome: 'Vanessa', telefone: '98765423456'},
     {id:3 ,nome: 'BrunA', telefone: '98765423456'},
@@ -45,6 +45,10 @@ app.put('/clients/:id', (req, resp) => {
 })
 
 
-
+app.delete('/clients/:id', (req, resp) => {
+    const id = req.params.id;
+     clients = clients.filter(value => value.id != id);
+     resp.json(clients);
+})
 
 app.listen(3032);
