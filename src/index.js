@@ -31,4 +31,20 @@ app.post('/clients',(req, resp) => {
     resp.json(client);
 } )
 
+
+//Atuakizar nome do clientes
+
+app.put('/clients/:id', (req, resp) => {
+    const id = req.params.id;
+    const nome = req.body.nome;
+
+    let client = clients.filter(value => value.id == id);
+
+    client[0].nome = nome;
+    resp.json(client[0]);
+})
+
+
+
+
 app.listen(3032);
