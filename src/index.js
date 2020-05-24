@@ -1,4 +1,6 @@
 const app = require('express')();
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
 const clients = [
     {id:1 ,nome: 'BIA', telefone: '98765423456'},
@@ -19,5 +21,12 @@ app.get('/clients/:id', (req, resp) =>
     resp.json(client)
 }
 )
+
+
+//Inserir dados no servidor -BD
+
+app.post('/clients',(req, resp) => {
+    console.log(req.body);
+} )
 
 app.listen(3032);
