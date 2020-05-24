@@ -26,7 +26,9 @@ app.get('/clients/:id', (req, resp) =>
 //Inserir dados no servidor -BD
 
 app.post('/clients',(req, resp) => {
-    console.log(req.body);
+    const client = req.body;
+    clients.push(client);
+    resp.json(client);
 } )
 
 app.listen(3032);
